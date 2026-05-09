@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +16,19 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // declare a variable to store array
+        var result = new double[length];
+        var numDbl = number;
+        //Using For statement to iterate number of times number to be double
+        for(var i = 0; i < length; i++)
+        {
+            //store number in the list and ramin value to be double on next loop
+            result[i] = numDbl;
+            numDbl += number;
+        }
+
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +44,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Calculate index where list will be slice
+        // Store it in a variable to use on the slice 
+        int splitIndex = data.Count - amount;
+
+        // Get 2 lists to store the right part and left part of the list
+        List<int> rightPart = data.GetRange(splitIndex, amount);
+        List<int> leftPart = data.GetRange(0, splitIndex);
+
+        // Clear list and then add the 2 parts got, starting by right part
+        data.Clear();
+        data.AddRange(rightPart);
+        data.AddRange(leftPart);
+        
     }
 }
