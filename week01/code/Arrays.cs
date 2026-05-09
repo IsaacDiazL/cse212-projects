@@ -18,13 +18,13 @@ public static class Arrays
 
         // declare a variable to store array
         var result = new double[length];
-        var numDbl = number;
-        //Using For statement to iterate number of times number to be double
+        var numDoubl = number;
+        //Using For loop cycling for length variable, in each variable number variable will be double
         for(var i = 0; i < length; i++)
         {
-            //store number in the list and ramin value to be double on next loop
-            result[i] = numDbl;
-            numDbl += number;
+            //store number in the list and double remain value on next loop
+            result[i] = numDoubl;
+            numDoubl += number;
         }
 
 
@@ -47,11 +47,13 @@ public static class Arrays
 
         // Calculate index where list will be slice
         // Store it in a variable to use on the slice 
-        int splitIndex = data.Count - amount;
+        int sliceIndex = data.Count - amount;
 
         // Get 2 lists to store the right part and left part of the list
-        List<int> rightPart = data.GetRange(splitIndex, amount);
-        List<int> leftPart = data.GetRange(0, splitIndex);
+        //1st part starts at the slice and ends at the last index number
+        // 2nd part starts at index 0 and ends at slice index
+        List<int> rightPart = data.GetRange(sliceIndex, amount);
+        List<int> leftPart = data.GetRange(0, sliceIndex);
 
         // Clear list and then add the 2 parts got, starting by right part
         data.Clear();
