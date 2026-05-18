@@ -45,6 +45,11 @@ public class TakingTurnsQueue
                 person.Turns -= 1;
                 _people.Enqueue(person);
             }
+            //add an if statement to add person if number of turnes is 0
+            if (person.Turns <= 0)
+            {
+                _people.Enqueue(person);
+            }
 
             return person;
         }

@@ -13,7 +13,10 @@ public class PersonQueue
     /// <param name="person">The person to add</param>
     public void Enqueue(Person person)
     {
-        _queue.Insert(0, person);
+        // change index value from 0 to length of queue,
+        //as it should push variable to the back of list
+        //instead of the front
+        _queue.Insert(_queue.Count, person);
     }
 
     public Person Dequeue()

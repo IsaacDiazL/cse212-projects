@@ -5,8 +5,8 @@
 public class CustomerService {
     public static void Run() {
         // Example code to see what's in the customer service queue:
-        // var cs = new CustomerService(10);
-        // Console.WriteLine(cs);
+        var cs = new CustomerService(3);
+        Console.WriteLine(cs);
 
         // Test Cases
 
@@ -14,7 +14,8 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
-
+        cs.AddNewCustomer();
+        cs.ServeCustomer();
         // Defect(s) Found: 
 
         Console.WriteLine("=================");
@@ -23,7 +24,8 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
-
+        cs.ServeCustomer();
+        Console.WriteLine(cs);
         // Defect(s) Found: 
 
         Console.WriteLine("=================");
@@ -88,8 +90,8 @@ public class CustomerService {
     /// Dequeue the next customer and display the information.
     /// </summary>
     private void ServeCustomer() {
-        _queue.RemoveAt(0);
         var customer = _queue[0];
+        _queue.RemoveAt(0);
         Console.WriteLine(customer);
     }
 
